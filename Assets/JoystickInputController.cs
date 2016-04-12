@@ -22,6 +22,7 @@ public class JoystickInputController : MonoBehaviour {
 		joyX = Input.GetAxis ("JoystickX");
 		joyY = Input.GetAxis ("JoystickY");
 
+		Debug.Log (joyY + "");
 		cubeRigid.AddForce (transform.forward * joyY * moveSpeed);
 		cubeRigid.transform.Rotate (Vector3.up, Time.deltaTime * joyX * rotateSpeed, Space.World);
 	}
