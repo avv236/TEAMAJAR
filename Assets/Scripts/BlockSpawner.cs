@@ -37,6 +37,7 @@ public class BlockSpawner : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.D)){
 			currLocation.x += (blockScale.x);
 		}
+	
 	//SPAWNING CODE
 		if(Input.GetKeyDown(KeyCode.Space)){
 			Transform newBlock = (Transform)Instantiate (BlockPrefab,spawnPosition,Quaternion.identity);
