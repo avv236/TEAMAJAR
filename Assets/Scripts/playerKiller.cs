@@ -8,6 +8,8 @@ public class playerKiller : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 
+		//Turns off the trigger if it is a cube
+		//Then sets the parents respawning variabl to true
 		if(other.gameObject.tag == "deathCube"){
 			Debug.Log("COLLIDED WITH " + other.gameObject.name);
 			Debug.Log("TURNING OFF " + this.transform.parent.gameObject.name);

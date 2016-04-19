@@ -16,12 +16,19 @@ public class playerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		//Basic movement
+		if(!isRespawning){
+
 		float horizontal = Input.GetAxis("Horizontal");
 		float vertical = Input.GetAxis("Vertical");
 		Vector3 fMovement = transform.up * 5f * vertical;
 		transform.position += fMovement * Time.deltaTime;
 
+		}
+
+		//If it is respawning, it will be on a 3 second counter and then respawns
+		//It turns off the mesh renderer and then moves it
 		if(isRespawning){
 			GetComponent<Renderer>().enabled = false;
 			Debug.Log("Amazing we are respawning " + this.name + " " + respawnTimer + " seconds left");
@@ -34,6 +41,8 @@ public class playerControl : MonoBehaviour {
 			}
 		}
 
+		//Player is ready to spawn, move it to the right place, right now it is constant at 0 0 0
+		//Once it is in the right place, turn the renderer and the trigger back on
 		if(respawnNow){
 			Debug.Log(transform.name + " is called");
 			transform.position = new Vector3(0,0,0);
