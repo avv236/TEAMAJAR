@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class KirbyJump : MonoBehaviour {
 
@@ -8,6 +10,8 @@ public class KirbyJump : MonoBehaviour {
     public float fallingGravity = 1.5f;
     public float gravity = 20f;
     float jumpCounter = 10f;
+    float jumpsLeft;
+    public GameObject staminaBar;
     Vector3 moveDirection = Vector3.zero;
 
 
@@ -41,9 +45,9 @@ public class KirbyJump : MonoBehaviour {
 
             moveDirection = transform.TransformDirection(moveDirection);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Jump"))
             {
-                Debug.Log("jumped?");
+                Debug.Log("pressed");
                 moveDirection.y = jumpSpeed * jumpCounter;
                 jumpCounter--;
             }
@@ -61,5 +65,7 @@ public class KirbyJump : MonoBehaviour {
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
+        jumpsLeft = jumpCounter / 10;
+        staminaBar.transform.localScale = new Vector3(jumpsLeft, 1, 1);
     }
 }
