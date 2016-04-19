@@ -22,7 +22,7 @@ public class BlockMaker : MonoBehaviour {
 
 			if (Physics.Raycast (makerRay, out makerHit, 1000f)) {
 				if (makerHit.collider.name == "base" || !makerHit.collider.gameObject.GetComponent<BlockController> ().isMoving) {
-					Instantiate (pr_Block, makerHit.point + (Vector3.up * 1f), pr_Block.transform.rotation);
+					Instantiate (pr_Block, makerHit.point + (Vector3.up * 12f), pr_Block.transform.rotation);
 				}
 			}
 		}
