@@ -44,12 +44,23 @@ public class playerControl : MonoBehaviour {
 		//Player is ready to spawn, move it to the right place, right now it is constant at 0 0 0
 		//Once it is in the right place, turn the renderer and the trigger back on
 		if(respawnNow){
-			Debug.Log(transform.name + " is called");
-			transform.position = new Vector3(0,0,0);
-			GetComponent<Renderer>().enabled = true;
-			transform.gameObject.SetActive(true);
-			transform.GetChild(0).gameObject.SetActive(true);
-			respawnNow = false;
+			if(this.name == "P1"){
+				Debug.Log(transform.name + " is called");
+				transform.position = new Vector3(-14f,0.61f,0f);
+				GetComponent<Renderer>().enabled = true;
+				transform.gameObject.SetActive(true);
+				transform.GetChild(0).gameObject.SetActive(true);
+				respawnNow = false;
+			}
+
+			else if(this.name == "P2"){
+				Debug.Log(transform.name + " is called");
+				transform.position = new Vector3(25f,0.61f,0);
+				GetComponent<Renderer>().enabled = true;
+				transform.gameObject.SetActive(true);
+				transform.GetChild(0).gameObject.SetActive(true);
+				respawnNow = false;
+			}
 		}
 	}
 
