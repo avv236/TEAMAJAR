@@ -24,7 +24,7 @@ public class PlayerBlockSpawn : MonoBehaviour {
 	}
 
 	void DropBlock(){
-		if(Input.GetKeyDown(KeyCode.Z)|| Input.GetAxis("FireTrigger") == -1){
+		if(Input.GetKeyDown(KeyCode.Z)|| Input.GetAxis("FireTrigger") <= -.9f){
 			//Sets block spawn point directly below the player(snaps to grid)
 			//spawnPosition = new Vector3 (Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(playerPosition.y), Mathf.RoundToInt(playerPosition.z)) + (-transform.up);
 
