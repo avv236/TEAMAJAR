@@ -33,7 +33,7 @@ public class KirbyJump : MonoBehaviour {
 
         CharacterController controller = GetComponent<CharacterController>();
 
-        Debug.Log(controller.isGrounded);
+        //Debug.Log(controller.isGrounded);
         if (jumpCounter > 0f)
         {
             moveDirection.x = Input.GetAxis("Horizontal") * speed;
@@ -43,7 +43,7 @@ public class KirbyJump : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("jumped?");
+                //Debug.Log("jumped?");
                 moveDirection.y = jumpSpeed * jumpCounter;
                 jumpCounter--;
             }
