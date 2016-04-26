@@ -20,7 +20,7 @@ public class KirbyJump : MonoBehaviour {
 	void Update () {
         Ray rayGrounded = new Ray(transform.position, Vector3.down);
 
-        if(Physics.Raycast(rayGrounded, 1f))
+        if(Physics.Raycast(rayGrounded, 1.2f))
         {
             grounded = true;
             jumpCounter = 10;
