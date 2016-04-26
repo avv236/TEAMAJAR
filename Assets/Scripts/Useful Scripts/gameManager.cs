@@ -6,6 +6,9 @@ public class gameManager : MonoBehaviour {
 	public Transform Player1;
 	public Transform Player2;
 
+	//TODO
+	//Needs to make it so you cant drop blocks when renderer is off
+
 	// Use this for initialization
 	void Start () {
 	
