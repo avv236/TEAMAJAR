@@ -13,8 +13,16 @@ public class KirbyJump : MonoBehaviour {
     float jumpsLeft;
     public GameObject staminaBar;
     Vector3 moveDirection = Vector3.zero;
+	string playerName;
 
+	void Start(){
+		playerName = this.name;
+	}
 
+	//NOTE: BAD CODE WHEEEE
+	//Right now its checking the name of the player so its pretty inefficient
+	//Oh well
+	//Fix some bugs 
     bool grounded = false;
 
 	void Update () {
@@ -32,21 +40,76 @@ public class KirbyJump : MonoBehaviour {
         }
 
         CharacterController controller = GetComponent<CharacterController>();
-        moveDirection.x = Input.GetAxis("Horizontal") * speed;
-        moveDirection.z = Input.GetAxis("Vertical") * speed;
+
+		if(this.name == "P1"){
+
+		if(Input.GetKey(KeyCode.W)){
+				transform.position += transform.forward * speed * Time.deltaTime;
+		}
+
+		if(Input.GetKey(KeyCode.A)){
+				transform.position -= transform.right * speed * Time.deltaTime;;
+		}
+
+		if(Input.GetKey(KeyCode.S)){
+				transform.position -= transform.forward * speed * Time.deltaTime;;
+		}
+
+		if(Input.GetKey(KeyCode.D)){
+				transform.position += transform.right * speed * Time.deltaTime;;
+		}
+
+		}
+
+		if(this.name == "P2"){
+
+			if(Input.GetKey(KeyCode.UpArrow)){
+				transform.position += transform.forward * speed * Time.deltaTime;
+			}
+
+			if(Input.GetKey(KeyCode.LeftArrow)){
+				transform.position -= transform.right * speed * Time.deltaTime;;
+			}
+
+			if(Input.GetKey(KeyCode.DownArrow)){
+				transform.position -= transform.forward * speed * Time.deltaTime;;
+			}
+
+			if(Input.GetKey(KeyCode.RightArrow)){
+				transform.position += transform.right * speed * Time.deltaTime;;
+			}
+
+		}
+			
 
         moveDirection = transform.TransformDirection(moveDirection);
 
         if (jumpCounter >= 0f)
         {
-            if (Input.GetButtonDown("Jump"))
-            {
-                Debug.Log("pressed");
-                moveDirection.y = jumpSpeed * jumpCounter;
-                jumpCounter--;
-                
-            }
+			if(playerName == "P1"){
+
+				if (Input.GetKeyDown(KeyCode.Space))
+	            {
+	                Debug.Log("pressed");
+	                moveDirection.y = jumpSpeed * jumpCounter;
+	                jumpCounter--;
+	                
+	            }
+			}
+
+			if(playerName == "P2"){
+
+				if (Input.GetKeyDown(KeyCode.Comma))
+				{
+					Debug.Log("pressed");
+					moveDirection.y = jumpSpeed * jumpCounter;
+					jumpCounter--;
+
+				}
+			}
         }
+
+
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
