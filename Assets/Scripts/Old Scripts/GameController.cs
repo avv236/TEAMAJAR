@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class testScript : MonoBehaviour {
+public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
