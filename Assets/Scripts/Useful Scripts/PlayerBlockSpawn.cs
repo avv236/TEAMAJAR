@@ -29,7 +29,7 @@ public class PlayerBlockSpawn : MonoBehaviour {
 			//spawnPosition = new Vector3 (Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(playerPosition.y), Mathf.RoundToInt(playerPosition.z)) + (-transform.up);
 
 			//Set spawn point without grid snap
-			spawnPosition = new Vector3 (playerPosition.x, playerPosition.y, playerPosition.z) + (-transform.up);
+			spawnPosition = new Vector3 (playerPosition.x, playerPosition.y, playerPosition.z) + (-transform.up * 2f);
 			Debug.Log (spawnPosition);
 
 			Ray spawnCheck = new Ray (playerPosition, Vector3.down);
