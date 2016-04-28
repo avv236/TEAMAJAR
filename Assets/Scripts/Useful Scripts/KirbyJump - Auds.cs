@@ -8,6 +8,7 @@ public class KirbyJump : MonoBehaviour {
     public float speed = 6f;
     public float jumpSpeed = 8f;
     public float fallingGravity = 1.5f;
+    float initialGravity = 11f;
     public float gravity = 20f;
     int jumpCounter = 10;
     float jumpsLeft;
@@ -84,8 +85,27 @@ public class KirbyJump : MonoBehaviour {
 
         moveDirection = transform.TransformDirection(moveDirection);
 
+
         if (jumpCounter >= 0f)
         {
+<<<<<<< HEAD
+            if (Input.GetButtonDown("Jump"))
+            {
+                Debug.Log("pressed");
+                moveDirection.y = jumpSpeed * jumpCounter;
+                jumpCounter--;
+                
+            }
+
+        if( moveDirection.y < 0f)
+            {
+                gravity = fallingGravity;
+            }
+            else
+            {
+                gravity = initialGravity;
+            }
+=======
 			if(playerName == "P1"){
 
 				if (Input.GetKeyDown(KeyCode.Space))
@@ -107,6 +127,7 @@ public class KirbyJump : MonoBehaviour {
 
 				}
 			}
+>>>>>>> origin/adamBranch
         }
 
 
