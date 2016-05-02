@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 0ebba71220005904fa62c4dc178fffbb
+timeCreated: 1462170487
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: group
+    100002: pasted__pCylinder2
+    100004: pasted__pSphere2
+    100006: pasted__pSphere3
+    100008: pasted__pSphere4
+    100010: pasted__transform1
+    100012: pasted__transform2
+    100014: pasted__transform3
+    100016: pCube2
+    100018: pCube3
+    100020: pCube4
+    100022: pCube5
+    100024: pCube6
+    100026: pCylinder2
+    100028: pCylinder3
+    100030: //RootNode
+    100032: polySurface2
+    100034: polySurface3
+    100036: polySurface4
+    100038: pPipe1
+    100040: pSphere1
+    100042: pSphere2
+    100044: pSphere3
+    100046: pSphere4
+    100048: pSphere5
+    100050: pSphere6
+    100052: transform1
+    100054: transform2
+    100056: transform3
+    100058: transform4
+    100060: transform5
+    400000: group
+    400002: pasted__pCylinder2
+    400004: pasted__pSphere2
+    400006: pasted__pSphere3
+    400008: pasted__pSphere4
+    400010: pasted__transform1
+    400012: pasted__transform2
+    400014: pasted__transform3
+    400016: pCube2
+    400018: pCube3
+    400020: pCube4
+    400022: pCube5
+    400024: pCube6
+    400026: pCylinder2
+    400028: pCylinder3
+    400030: //RootNode
+    400032: polySurface2
+    400034: polySurface3
+    400036: polySurface4
+    400038: pPipe1
+    400040: pSphere1
+    400042: pSphere2
+    400044: pSphere3
+    400046: pSphere4
+    400048: pSphere5
+    400050: pSphere6
+    400052: transform1
+    400054: transform2
+    400056: transform3
+    400058: transform4
+    400060: transform5
+    2300000: pCube2
+    2300002: pCube3
+    2300004: pCube4
+    2300006: pCube5
+    2300008: pCube6
+    2300010: pCylinder3
+    2300012: polySurface2
+    2300014: polySurface3
+    2300016: polySurface4
+    2300018: pPipe1
+    2300020: pSphere1
+    2300022: pSphere5
+    2300024: pSphere6
+    3300000: pCube2
+    3300002: pCube3
+    3300004: pCube4
+    3300006: pCube5
+    3300008: pCube6
+    3300010: pCylinder3
+    3300012: polySurface2
+    3300014: polySurface3
+    3300016: polySurface4
+    3300018: pPipe1
+    3300020: pSphere1
+    3300022: pSphere5
+    3300024: pSphere6
+    4300000: pSphere1
+    4300002: pPipe1
+    4300004: pCube2
+    4300006: pCube3
+    4300008: pCube4
+    4300010: polySurface2
+    4300012: polySurface3
+    4300014: polySurface4
+    4300016: pCylinder3
+    4300018: pCube5
+    4300020: pCube6
+    4300022: pSphere5
+    4300024: pSphere6
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
