@@ -37,7 +37,7 @@ public class playerControl : MonoBehaviour {
 		if(respawnNow){
 			if(this.name == "P1"){
 				Debug.Log(transform.name + " is called");
-				transform.position = new Vector3(-14f,0.61f,0f);
+				transform.position = new Vector3(-16f,0.61f,0f);
 				GetComponent<Renderer>().enabled = true;
 				transform.gameObject.SetActive(true);
 				transform.GetChild(0).gameObject.SetActive(true);
@@ -46,7 +46,7 @@ public class playerControl : MonoBehaviour {
 
 			else if(this.name == "P2"){
 				Debug.Log(transform.name + " is called");
-				transform.position = new Vector3(25f,0.61f,0);
+				transform.position = new Vector3(28f,0.61f,0);
 				GetComponent<Renderer>().enabled = true;
 				transform.gameObject.SetActive(true);
 				transform.GetChild(0).gameObject.SetActive(true);
