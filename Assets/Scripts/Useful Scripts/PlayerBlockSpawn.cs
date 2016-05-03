@@ -7,28 +7,38 @@ public class PlayerBlockSpawn : MonoBehaviour {
 	public Transform BlockPrefab;
 	List<Transform> listOfBlocks = new List<Transform>();
 
+	public Renderer playerRend;
+
 	public Vector3 blockScale;
 	public Vector3 playerPosition;
 	public Vector3 spawnPosition;
+
+	private float nextBlock1;
+	private float blockCooldown1;
+	private float nextBlock2;
+	private float blockCooldown2;
+
 	string playerName;
 
 	// Use this for initialization
 	void Start () {
 		playerName = this.name;
+		playerRend = GetComponent<Renderer>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		playerPosition = transform.position;
 
-		DropBlock ();
+			DropBlock();
+
 	}
 
 	void DropBlock(){
 
 		if(playerName == "P1"){
 
-			if(Input.GetKeyDown(KeyCode.Z)){
+			if(Input.GetKeyDown(KeyCode.Z) && Time.time > nextBlock2){
 				//Sets block spawn point directly below the player(snaps to grid)
 				//spawnPosition = new Vector3 (Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(playerPosition.y), Mathf.RoundToInt(playerPosition.z)) + (-transform.up);
 
@@ -47,13 +57,14 @@ public class PlayerBlockSpawn : MonoBehaviour {
 					// if there isnt spawn block;
 					Transform newBlock = (Transform)Instantiate (BlockPrefab,spawnPosition,Quaternion.identity);
 					listOfBlocks.Add(newBlock);
+					nextBlock1 = Time.time + blockCooldown1;
 				}
 			}
 		}
 
 		if(playerName == "P2"){
 
-			if(Input.GetKeyDown(KeyCode.Period)){
+			if(Input.GetKeyDown(KeyCode.Period)  && Time.time > nextBlock2){
 				//Sets block spawn point directly below the player(snaps to grid)
 				//spawnPosition = new Vector3 (Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(playerPosition.y), Mathf.RoundToInt(playerPosition.z)) + (-transform.up);
 
@@ -72,6 +83,7 @@ public class PlayerBlockSpawn : MonoBehaviour {
 					// if there isnt spawn block;
 					Transform newBlock = (Transform)Instantiate (BlockPrefab,spawnPosition,Quaternion.identity);
 					listOfBlocks.Add(newBlock);
+					nextBlock2 = Time.time + blockCooldown2;
 				}
 			}
 		}
