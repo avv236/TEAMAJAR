@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9202eab0ee9e9b048b492e938c23fee4
-timeCreated: 1462170487
+guid: f2f4798d375606a48b6dcdcbc2282dec
+timeCreated: 1462239959
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -21,18 +21,9 @@ ModelImporter:
     400010: transform1
     400012: transform2
     400014: transform3
-    2300000: pCube1
-    2300002: pCube2
-    2300004: pCube3
-    2300006: pCube4
-    3300000: pCube1
-    3300002: pCube2
-    3300004: pCube3
-    3300006: pCube4
-    4300000: pCube1
-    4300002: pCube2
-    4300004: pCube3
-    4300006: pCube4
+    2300000: pCube4
+    3300000: pCube4
+    4300000: pCube4
     9500000: //RootNode
   materials:
     importMaterials: 1

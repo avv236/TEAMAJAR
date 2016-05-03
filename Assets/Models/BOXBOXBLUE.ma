@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
-//Name: BOXBOX.ma
-//Last modified: Mon, May 02, 2016 09:45:12 PM
+//Name: BOXBOXBLUE.ma
+//Last modified: Mon, May 02, 2016 09:45:55 PM
 //Codeset: 1252
 requires maya "2016";
 currentUnit -l centimeter -a degree -t film;
@@ -519,9 +519,9 @@ createNode groupParts -n "groupParts5";
 	rename -uid "D4C5C870-4833-BA07-A6C2-04A168228ADE";
 	setAttr ".ihi" 0;
 	setAttr ".ic" -type "componentList" 1 "f[0:5]";
-createNode lambert -n "REDBOX";
+createNode lambert -n "BLUEBOX";
 	rename -uid "B08C7263-4EEE-4E02-DCA6-86B1ED7CFA4F";
-	setAttr ".c" -type "float3" 0.442 0.070699997 0.121 ;
+	setAttr ".c" -type "float3" 0.046434004 0.13093117 0.32699999 ;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -626,13 +626,13 @@ connectAttr "groupId7.msg" "phongE1SG.gn" -na;
 connectAttr "groupId8.msg" "phongE1SG.gn" -na;
 connectAttr "phongE1SG.msg" "materialInfo1.sg";
 connectAttr "phongE1.msg" "materialInfo1.m";
-connectAttr "REDBOX.oc" "phongE2SG.ss";
+connectAttr "BLUEBOX.oc" "phongE2SG.ss";
 connectAttr "groupId3.msg" "phongE2SG.gn" -na;
 connectAttr "groupId9.msg" "phongE2SG.gn" -na;
 connectAttr "pCubeShape1.iog.og[1]" "phongE2SG.dsm" -na;
 connectAttr "pCube4Shape.iog.og[1]" "phongE2SG.dsm" -na;
 connectAttr "phongE2SG.msg" "materialInfo2.sg";
-connectAttr "REDBOX.msg" "materialInfo2.m";
+connectAttr "BLUEBOX.msg" "materialInfo2.m";
 connectAttr "polyExtrudeFace12.out" "groupParts1.ig";
 connectAttr "groupId1.id" "groupParts1.gi";
 connectAttr "groupParts1.og" "groupParts2.ig";
@@ -652,6 +652,6 @@ connectAttr "groupId9.id" "groupParts5.gi";
 connectAttr "phongE1SG.pa" ":renderPartition.st" -na;
 connectAttr "phongE2SG.pa" ":renderPartition.st" -na;
 connectAttr "phongE1.msg" ":defaultShaderList1.s" -na;
-connectAttr "REDBOX.msg" ":defaultShaderList1.s" -na;
+connectAttr "BLUEBOX.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-// End of BOXBOX.ma
+// End of BOXBOXBLUE.ma
