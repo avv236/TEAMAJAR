@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BariJump : MonoBehaviour {
@@ -14,6 +15,10 @@ public class BariJump : MonoBehaviour {
 	public float distToGround;
 	public float gravity = 9.8f;
 
+	public GameObject staminaBar;
+	//TODO fix stamina bars
+	//Add the power ups in
+	//Add art pass etc
 
 	//LOCAL VARIABLES
 	private CharacterController playerCharController;
@@ -72,7 +77,13 @@ public class BariJump : MonoBehaviour {
 		}
 
 		//subject P1 to gravity
-		moveDirection.y -= gravity * Time.deltaTime;
+		if(moveDirection.y <= -10){
+			moveDirection.y = -10;
+		}
+		else{
+			moveDirection.y -= gravity * Time.deltaTime;
+		}
+
 		playerCharController.Move (moveDirection * Time.deltaTime);
 	}
 

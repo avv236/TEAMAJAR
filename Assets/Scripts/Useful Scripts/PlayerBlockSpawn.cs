@@ -38,12 +38,12 @@ public class PlayerBlockSpawn : MonoBehaviour {
 
 		if(playerName == "P1" && !GetComponent<playerControl>().isRespawning){
 
-			if(Input.GetKeyDown(KeyCode.Z) && Time.time > nextBlock2){
+			if((Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("P1 Fire")) && Time.time > nextBlock2){
 				//Sets block spawn point directly below the player(snaps to grid)
 				//spawnPosition = new Vector3 (Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(playerPosition.y), Mathf.RoundToInt(playerPosition.z)) + (-transform.up);
 
 				//Set spawn point without grid snap
-				spawnPosition = new Vector3 (playerPosition.x, playerPosition.y, playerPosition.z) + (-transform.up * 2);
+				spawnPosition = new Vector3 (playerPosition.x, playerPosition.y, playerPosition.z) + (-transform.up * 2.78f);
 				Debug.Log (spawnPosition);
 
 				Ray spawnCheck = new Ray (playerPosition, Vector3.down);
@@ -70,12 +70,12 @@ public class PlayerBlockSpawn : MonoBehaviour {
 
 		if(playerName == "P2" && !GetComponent<playerControl>().isRespawning){
 
-			if(Input.GetKeyDown(KeyCode.Period)  && Time.time > nextBlock2){
+			if((Input.GetKeyDown(KeyCode.Period) || Input.GetButtonDown("P2 Fire"))  && Time.time > nextBlock2){
 				//Sets block spawn point directly below the player(snaps to grid)
 				//spawnPosition = new Vector3 (Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(playerPosition.y), Mathf.RoundToInt(playerPosition.z)) + (-transform.up);
 
 				//Set spawn point without grid snap
-				spawnPosition = new Vector3 (playerPosition.x, playerPosition.y, playerPosition.z) + (-transform.up * 2);
+				spawnPosition = new Vector3 (playerPosition.x, playerPosition.y, playerPosition.z) + (-transform.up * 2.78f);
 				Debug.Log (spawnPosition);
 
 				Ray spawnCheck = new Ray (playerPosition, Vector3.down);

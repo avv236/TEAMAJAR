@@ -67,7 +67,7 @@ public class cameraBasics : MonoBehaviour {
 				
 		}
 			
-		if(p1.transform.position.y < 5f && p2.transform.position.y < 5f){
+		if(p1.transform.position.y < 5f && p2.transform.position.y < 7f){
 			camPos = originalPos;
 		}
 
