@@ -66,6 +66,9 @@ public class BlockController : MonoBehaviour {
 			myRigid.useGravity = true;
 		}
 
+		if (myLevel != null)
+			GetComponent<MeshRenderer> ().material.color = myLevel.GetComponent<MeshRenderer> ().material.color;
+
 		//decide block constraints
 		if (myLevel != null && levelBelow != null && levelBelow.GetComponent<LevelController> ().rotating)
 			myRigid.constraints = levelBelowRotateConstraints;
