@@ -18,6 +18,7 @@ public class Jumping : MonoBehaviour {
     }
 
     void Update(){
+		Debug.Log (jumpTimer);
         if (Input.GetKey(KeyCode.Space))
         {
             jumpTimer += Time.deltaTime;
