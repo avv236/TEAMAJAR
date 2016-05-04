@@ -1,27 +1,30 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BariJump : MonoBehaviour {
-
-
 	//PHYSICS VARIABLES
-	public Vector3 moveDirection;
-	public float moveSpeed;
+	private Vector3 moveDirection;
+	private float moveSpeed = 6f;
 
-	public float jumpForce;
-	public float maxJumps = 5f;
-	public float jumpsCounter = 0f;
+	private float jumpForce = 10f;
+	private int maxJumps = 5;
+	private int jumpsCounter = 0;
 
 	//public bool grounded;
 	public float distToGround;
-	public float gravity;
+	public float gravity = 9.8f;
 
+	public GameObject staminaBar;
+	//TODO fix stamina bars
+	//Add the power ups in
+	//Add art pass etc
 
 	//LOCAL VARIABLES
-	public CharacterController playerCharController;
+	private CharacterController playerCharController;
 	//public Rigidbody playerRigidbody;
 	//public Collider playerCollider;
-	public string playerName;
+	private string playerName;
 
 
 	// Use this for initialization
@@ -31,7 +34,7 @@ public class BariJump : MonoBehaviour {
 		//playerCollider = GetComponent<Collider>();
 		playerCharController = GetComponent<CharacterController>();
 
-		playerName = this.name;
+		playerName = gameObject.name;
 
 		//get the distance to ground
 		distToGround = playerCharController.bounds.extents.y;
@@ -45,7 +48,7 @@ public class BariJump : MonoBehaviour {
 		UpdateJumps ();
 
 		//Does player movement
-		Movement(playerName);
+		Movement();
 	}
 		
 
@@ -53,55 +56,35 @@ public class BariJump : MonoBehaviour {
 		return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f);
 	}
 
-	public void UpdateJumps(){
+	private void UpdateJumps(){
 		if(IsGrounded()){
 			jumpsCounter = maxJumps;
 		}
 	}
 
-	public void Movement(string Pname){
-		//if this is player one
-		if(Pname == "P1"){
-			//**MOVEMENT**
-			//set x-axis movement direction to player one input
-			moveDirection.x = Input.GetAxis ("P1 Horizontal") * moveSpeed;
-			moveDirection = transform.TransformDirection(moveDirection);
+	private void Movement(){
+		//**MOVEMENT**
+		//set x-axis movement direction to player one input
+		moveDirection.x = Input.GetAxis (playerName + " Horizontal") * moveSpeed;
+		moveDirection = transform.TransformDirection(moveDirection);
 
-			//**JUMPING**
-			// if you have jumps left and you press jump
-			// set y-axis movement to jumpForce and subtract one jump from jumpCounter
-			if(jumpsCounter > 0 && Input.GetButtonDown("P1 Jump")){
-				moveDirection.y = jumpForce;
-				jumpsCounter--;
-			}
-
-			//subject P1 to gravity
-			moveDirection.y -= gravity * Time.deltaTime;
-			playerCharController.Move (moveDirection * Time.deltaTime);
+		//**JUMPING**
+		// if you have jumps left and you press jump
+		// set y-axis movement to jumpForce and subtract one jump from jumpCounter
+		if(jumpsCounter > 0 && Input.GetButtonDown(playerName + " Jump")){
+			moveDirection.y = jumpForce;
+			jumpsCounter--;
 		}
 
-		//if this is player two
-		if(Pname == "P2"){
-			//**MOVEMENT**
-			//set x-axis move direction to player two input
-			moveDirection.x = Input.GetAxis ("P2 Horizontal") * moveSpeed;
-			moveDirection = transform.TransformDirection(moveDirection);
-
-			//**JUMPING**
-			// if you have jumps left and you press jump
-			// set y-axis movement to jumpForce and subtract one jump from jumpCounter
-			if(jumpsCounter > 0 && Input.GetButtonDown("P2 Jump")){
-				moveDirection.y = jumpForce;
-				jumpsCounter--;
-			}
-
-
-
+		//subject P1 to gravity
+		if(moveDirection.y <= -10){
+			moveDirection.y = -10;
+		}
+		else{
 			moveDirection.y -= gravity * Time.deltaTime;
-			playerCharController.Move (moveDirection * Time.deltaTime);
 		}
 
-
+		playerCharController.Move (moveDirection * Time.deltaTime);
 	}
 
 }

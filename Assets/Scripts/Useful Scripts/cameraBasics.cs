@@ -6,11 +6,15 @@ public class cameraBasics : MonoBehaviour {
 	public Transform p1;
 	public Transform p2;
 	Vector3 camPos;
+	Vector3 originalPos;
 	bool spawningView;
+	bool changedView;
 
 	// Use this for initialization
 	void Start () {
 		camPos = transform.position;
+		originalPos = transform.position;
+		changedView = false;
 		spawningView = false;
 	}
 	
@@ -26,11 +30,11 @@ public class cameraBasics : MonoBehaviour {
 		Vector3 p1View = Camera.main.WorldToViewportPoint(p1.position);
 		Vector3 p2View = Camera.main.WorldToViewportPoint(p2.position);
 
-		if(p1View.y >= 0.9){
+		if(p1View.y >= 0.95){
 			camPos = transform.position + new Vector3(0f, 1f, 0f);
 		}
 
-		if(p2View.y >= 0.9){
+		if(p2View.y >= 0.95){
 			camPos = transform.position + new Vector3(0f, 1f, 0f);
 		}
 
@@ -55,15 +59,18 @@ public class cameraBasics : MonoBehaviour {
 		//NOTE: The floor is hardcoded in since the floor won't change
 		//Adjust the floor values based on your own, for now its -7 and 18
 		//This pans in if both players are in the floor and they are not outside in respawn zones
-		if(!spawningView && Camera.main.fieldOfView > 65f){
+		if(!spawningView && Camera.main.fieldOfView > 60f){
 			if((p1.transform.position.x > -7f && p1.transform.position.x < 18f) &&
 			   (p2.transform.position.x > -7f && p2.transform.position.x < 18f)){
-				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 65f, 0.1f);
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 60f, 0.1f);
 			}
 				
 		}
+			
+		if(p1.transform.position.y < 5f && p2.transform.position.y < 7f){
+			camPos = originalPos;
+		}
 
-		//transform.position = Vector3.Lerp(transform.position, transform.position * 2f, 0.2f); 
-		transform.position = Vector3.Lerp(transform.position, camPos, 0.1f);
+			transform.position = Vector3.Lerp(transform.position, camPos, 0.1f);
 	}
 }
