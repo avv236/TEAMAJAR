@@ -28,7 +28,7 @@ public class Jumping : MonoBehaviour {
                 jumpTimer = 1.5f;
             }
           
-            Debug.Log(jumpTimer);
+            Debug.Log(jumpTimer);	
         }
         else
         {

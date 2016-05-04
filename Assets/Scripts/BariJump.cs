@@ -95,6 +95,8 @@ public class BariJump : MonoBehaviour {
 				jumpsCounter--;
 			}
 
+
+
 			moveDirection.y -= gravity * Time.deltaTime;
 			playerCharController.Move (moveDirection * Time.deltaTime);
 		}

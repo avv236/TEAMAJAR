@@ -59,6 +59,7 @@ public class KirbyJump : MonoBehaviour {
 				transform.position += transform.right * speed * Time.deltaTime;;
 		}
 
+
 		}
 
 		if(this.name == "P2"){
