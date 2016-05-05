@@ -48,8 +48,8 @@ public class cameraBasics : MonoBehaviour {
 
 		//Checks to see if a player is spawning outside of the box, if so it will pan out. 
 		if(spawningView){
-			if(Camera.main.fieldOfView <= 90f){
-				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 91f, 0.1f);
+			if(Camera.main.fieldOfView <= 97f){
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 97f, 0.1f);
 			}
 			else{
 				spawningView = false;
@@ -59,10 +59,10 @@ public class cameraBasics : MonoBehaviour {
 		//NOTE: The floor is hardcoded in since the floor won't change
 		//Adjust the floor values based on your own, for now its -7 and 18
 		//This pans in if both players are in the floor and they are not outside in respawn zones
-		if(!spawningView && Camera.main.fieldOfView > 60f){
+		if(!spawningView && Camera.main.fieldOfView > 65f){
 			if((p1.transform.position.x > -7f && p1.transform.position.x < 18f) &&
 			   (p2.transform.position.x > -7f && p2.transform.position.x < 18f)){
-				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 60f, 0.1f);
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 65f, 0.1f);
 			}
 				
 		}

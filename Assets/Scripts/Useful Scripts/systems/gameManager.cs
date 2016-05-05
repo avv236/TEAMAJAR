@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour {
 
@@ -11,13 +12,17 @@ public class gameManager : MonoBehaviour {
 	public static int P1LifeCount;
 	public static int P2LifeCount;
 
+	public static int winner; //P1 winning is 1, P2 winning is 2, will be passed through scenes
+	float winnerTimer; //Adds a slight delay to the winner before loading GGWP screen
 	//TODO
 	//Needs to make it so you cant drop blocks when renderer is off
 
 	// Use this for initialization
 	void Start () {
-		P1LifeCount = 3;
-		P2LifeCount = 3;
+		winner = 0;
+		winnerTimer = 1.2f;
+		P1LifeCount = 5;
+		P2LifeCount = 5;
 		P1Life.text = "Player 1 \n Lives: " + P1LifeCount;
 		P2Life.text = "Player 2 \n Lives: " + P2LifeCount;
 	}
@@ -26,12 +31,28 @@ public class gameManager : MonoBehaviour {
 	void Update () {
 
 		//Will be a load scene
-		if(Player1.GetComponent<Transform>().position.y >= 10){
-			Debug.Log("Player 1 wins, Go load a win screen");
+		if(P1LifeCount <= 0){
+			Player1.gameObject.SetActive(false);
+			winner = 2;
 		}
 
-		if(Player2.GetComponent<Transform>().position.y >= 10){
-			Debug.Log("Player 22222 wins, Go load a win screen");
+		if(P2LifeCount <= 0){
+			Player2.gameObject.SetActive(false);
+			winner = 1;
+		}
+
+		if(P1LifeCount <= 0 && P2LifeCount <= 0){
+			winner = 3;
+		}
+
+		if(winner != 0){
+			if(winnerTimer >= 0.1f){
+				winnerTimer -= Time.deltaTime;
+			}
+			else{
+				SceneManager.LoadScene(2);
+			}
+
 		}
 
 		P1Life.text = "Player 1 \n Lives: " + P1LifeCount;

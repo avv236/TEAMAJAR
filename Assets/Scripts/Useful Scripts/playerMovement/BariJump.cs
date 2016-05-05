@@ -16,6 +16,7 @@ public class BariJump : MonoBehaviour {
 	public float gravity = 9.8f;
 
 	public GameObject staminaBar;
+	float jumpsLeft;
 	//TODO fix stamina bars
 	//Add the power ups in
 	//Add art pass etc
@@ -49,6 +50,7 @@ public class BariJump : MonoBehaviour {
 
 		//Does player movement
 		Movement();
+
 	}
 		
 
@@ -84,7 +86,8 @@ public class BariJump : MonoBehaviour {
 			moveDirection.y -= gravity * Time.deltaTime;
 		}
 
+		jumpsLeft = 1f * jumpsCounter / 5f;
+		staminaBar.GetComponent<Image>().fillAmount = jumpsLeft;
 		playerCharController.Move (moveDirection * Time.deltaTime);
 	}
-
 }

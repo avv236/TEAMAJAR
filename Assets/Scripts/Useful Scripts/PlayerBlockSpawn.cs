@@ -86,17 +86,26 @@ public class PlayerBlockSpawn : MonoBehaviour {
 					//if there is dont spawn block
 					Debug.Log ("Can't Spawn Here");
 				}
-				else if(Physics.Raycast(spawnCheck, out spawnCheckInfo, 1000f)){
-					if((spawnCheckInfo.collider.tag == "respawnZone")){
-						Debug.Log("Cannot spawn in respawn zone");
-					}
-					else{
-						// if there isnt spawn block;
-						Transform newBlock = (Transform)Instantiate (BlockPrefab,spawnPosition,Quaternion.identity);
-						listOfBlocks.Add(newBlock);
-						nextBlock2 = Time.time + blockCooldown2;
-					}
+
+				else{
+					// if there isnt spawn block;
+					Transform newBlock = (Transform)Instantiate (BlockPrefab,spawnPosition,Quaternion.identity);
+					listOfBlocks.Add(newBlock);
+					nextBlock2 = Time.time + blockCooldown2;
 				}
+				//Code for not being able to spawn block inside the repsawnzone
+				//Not needed anymore since bombs disappear on touch
+//				else if(Physics.Raycast(spawnCheck, out spawnCheckInfo, 1000f)){
+//					if((spawnCheckInfo.collider.tag == "respawnZone")){
+//						Debug.Log("Cannot spawn in respawn zone");
+//					}
+//					else{
+//						// if there isnt spawn block;
+//						Transform newBlock = (Transform)Instantiate (BlockPrefab,spawnPosition,Quaternion.identity);
+//						listOfBlocks.Add(newBlock);
+//						nextBlock2 = Time.time + blockCooldown2;
+//					}
+//				}
 			}
 		}
 	}
