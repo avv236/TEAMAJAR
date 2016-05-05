@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BariJump : MonoBehaviour {
 	//PHYSICS VARIABLES
-	private Vector3 moveDirection;
+	public Vector3 moveDirection;
 	private float moveSpeed = 6f;
 
 	private float jumpForce = 10f;
@@ -14,11 +14,15 @@ public class BariJump : MonoBehaviour {
 	public float distToGround;
 	public float gravity = 9.8f;
 
+	public float collisionWait = 3f;
+	public float collisionSleep = 1f;
+
 
 	//LOCAL VARIABLES
 	private CharacterController playerCharController;
 	//public Rigidbody playerRigidbody;
 	//public Collider playerCollider;
+	public GameObject myBox;
 	private string playerName;
 
 
@@ -42,8 +46,17 @@ public class BariJump : MonoBehaviour {
 		//Updates jumpCounter when grounded
 		UpdateJumps ();
 
-		//Does player movement
-		Movement();
+		if (Input.GetAxis (playerName + " Horizontal") != 0f || Input.GetButtonDown (playerName + " Jump")){
+			//Does player movement
+			if (myBox.GetComponent<BounceDetection> ().timeSinceCollision >= collisionSleep)
+				Movement ();
+		}
+		else{
+			if (myBox.GetComponent<BounceDetection> ().timeSinceCollision >= collisionWait)
+				Movement();
+		}
+
+		playerCharController.Move (moveDirection * Time.deltaTime);
 	}
 		
 
@@ -71,9 +84,7 @@ public class BariJump : MonoBehaviour {
 			jumpsCounter--;
 		}
 
-		//subject P1 to gravity
 		moveDirection.y -= gravity * Time.deltaTime;
-		playerCharController.Move (moveDirection * Time.deltaTime);
 	}
 
 }
