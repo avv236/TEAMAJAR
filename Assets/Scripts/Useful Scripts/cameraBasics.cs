@@ -6,11 +6,15 @@ public class cameraBasics : MonoBehaviour {
 	public Transform p1;
 	public Transform p2;
 	Vector3 camPos;
+	Vector3 originalPos;
 	bool spawningView;
+	bool changedView;
 
 	// Use this for initialization
 	void Start () {
 		camPos = transform.position;
+		originalPos = transform.position;
+		changedView = false;
 		spawningView = false;
 	}
 	
@@ -26,11 +30,11 @@ public class cameraBasics : MonoBehaviour {
 		Vector3 p1View = Camera.main.WorldToViewportPoint(p1.position);
 		Vector3 p2View = Camera.main.WorldToViewportPoint(p2.position);
 
-		if(p1View.y >= 0.9){
+		if(p1View.y >= 0.95){
 			camPos = transform.position + new Vector3(0f, 1f, 0f);
 		}
 
-		if(p2View.y >= 0.9){
+		if(p2View.y >= 0.95){
 			camPos = transform.position + new Vector3(0f, 1f, 0f);
 		}
 
@@ -44,8 +48,8 @@ public class cameraBasics : MonoBehaviour {
 
 		//Checks to see if a player is spawning outside of the box, if so it will pan out. 
 		if(spawningView){
-			if(Camera.main.fieldOfView <= 90f){
-				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 91f, 0.1f);
+			if(Camera.main.fieldOfView <= 97f){
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 97f, 0.1f);
 			}
 			else{
 				spawningView = false;
@@ -62,8 +66,11 @@ public class cameraBasics : MonoBehaviour {
 			}
 				
 		}
+			
+		if(p1.transform.position.y < 5f && p2.transform.position.y < 7f){
+			camPos = originalPos;
+		}
 
-		//transform.position = Vector3.Lerp(transform.position, transform.position * 2f, 0.2f); 
-		transform.position = Vector3.Lerp(transform.position, camPos, 0.1f);
+			transform.position = Vector3.Lerp(transform.position, camPos, 0.1f);
 	}
 }
