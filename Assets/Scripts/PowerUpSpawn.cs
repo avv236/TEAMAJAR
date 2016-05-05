@@ -44,7 +44,7 @@ public class PowerUpSpawn : MonoBehaviour {
 
 	bool ShouldISpawn(){
 		float Randomizer = Random.Range (0f, 1f);
-		if(Randomizer >= .75f){
+		if(Randomizer >= .4f){
 			return true;
 		}else{
 			return false;

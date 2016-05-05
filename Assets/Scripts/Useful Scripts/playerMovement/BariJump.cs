@@ -5,7 +5,7 @@ using System.Collections;
 public class BariJump : MonoBehaviour {
 	//PHYSICS VARIABLES
 	private Vector3 moveDirection;
-	public float moveSpeed = 6f;
+	public float moveSpeed = 15f;
 
 	private float jumpForce = 10f;
 	private int maxJumps = 5;

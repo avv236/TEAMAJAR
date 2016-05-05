@@ -25,14 +25,16 @@ public class PowerUp : MonoBehaviour {
 	//add death if they go too far off screen to the left or right 
 	void OnTriggerEnter(Collider other){
 		if(other.name == "P1" || other.name == "p1Cube"){
+			//Debug.Log("We hit a power up WOOT");
 			Player1.GetComponent<BariJump> ().multiplier = 2f;
 			Destroy(this.gameObject);
-		}else if(other.name == "P2"){
+		}else if(other.name == "P2" || other.name == "p2Cube"){
+			//Debug.Log("We hit a power up WOOT");
 			Player2.GetComponent<BariJump> ().multiplier = 2f;
 			Destroy (this.gameObject);
 		}else{
 			Destroy (this.gameObject);
-			Debug.Log ("Shouldve Died");
+			//Debug.Log ("Shouldve Died");
 		}
 
 		Debug.Log ("Collided with" + other.name);
