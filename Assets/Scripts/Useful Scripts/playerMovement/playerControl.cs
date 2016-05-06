@@ -63,7 +63,7 @@ public class playerControl : MonoBehaviour {
 			if(this.name == "P1"){
 				Debug.Log(transform.name + " is called");
 				this.GetComponent<BariJump> ().multiplier = 1f;
-				transform.position = new Vector3(-20f,0.61f,-12f);
+				transform.position = new Vector3(-20f,8f,-12f);
 
 				//Loop through to find mesh renderer
 				foreach(Transform rendChild in children ){
@@ -81,7 +81,7 @@ public class playerControl : MonoBehaviour {
 			else if(this.name == "P2"){
 				Debug.Log(transform.name + " is called");
 				this.GetComponent<BariJump> ().multiplier = 1f;
-				transform.position = new Vector3(32f,0.61f,-12f);
+				transform.position = new Vector3(32f,8f,-12f);
 
 				//Loop through to find mesh renderer
 				foreach(Transform rendChild in children ){
