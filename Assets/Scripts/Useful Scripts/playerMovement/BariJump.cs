@@ -15,23 +15,21 @@ public class BariJump : MonoBehaviour {
 	public float distToGround;
 	public float gravity = 9.8f;
 
-<<<<<<< HEAD:Assets/Scripts/BariJump.cs
 	public float collisionWait = 3f;
 	public float collisionSleep = 1f;
 
-=======
+
 	public GameObject staminaBar;
 	float jumpsLeft;
 	//TODO fix stamina bars
 	//Add the power ups in
 	//Add art pass etc
->>>>>>> origin/master:Assets/Scripts/Useful Scripts/playerMovement/BariJump.cs
+
 
 	//LOCAL VARIABLES
 	private CharacterController playerCharController;
 	//public Rigidbody playerRigidbody;
 	//public Collider playerCollider;
-	public GameObject myBox;
 	private string playerName;
 
 
@@ -55,23 +53,11 @@ public class BariJump : MonoBehaviour {
 		//Updates jumpCounter when grounded
 		UpdateJumps ();
 
-<<<<<<< HEAD:Assets/Scripts/BariJump.cs
-		if (Input.GetAxis (playerName + " Horizontal") != 0f || Input.GetButtonDown (playerName + " Jump")){
-			//Does player movement
-			if (myBox.GetComponent<BounceDetection> ().timeSinceCollision >= collisionSleep)
-				Movement ();
-		}
-		else{
-			if (myBox.GetComponent<BounceDetection> ().timeSinceCollision >= collisionWait)
-				Movement();
-		}
-
 		playerCharController.Move (moveDirection * Time.deltaTime);
-=======
+
 		//Does player movement
 		Movement();
 
->>>>>>> origin/master:Assets/Scripts/Useful Scripts/playerMovement/BariJump.cs
 	}
 		
 
@@ -99,9 +85,9 @@ public class BariJump : MonoBehaviour {
 			jumpsCounter--;
 		}
 
-<<<<<<< HEAD:Assets/Scripts/BariJump.cs
+
 		moveDirection.y -= gravity * Time.deltaTime;
-=======
+
 		//subject P1 to gravity
 		if(moveDirection.y <= -10){
 			moveDirection.y = -10;
@@ -113,6 +99,6 @@ public class BariJump : MonoBehaviour {
 		jumpsLeft = 1f * jumpsCounter / 5f;
 		staminaBar.GetComponent<Image>().fillAmount = jumpsLeft;
 		playerCharController.Move (moveDirection * Time.deltaTime);
->>>>>>> origin/master:Assets/Scripts/Useful Scripts/playerMovement/BariJump.cs
+
 	}
 }
