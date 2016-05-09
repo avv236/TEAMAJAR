@@ -5,16 +5,20 @@ using System.Collections;
 public class BariJump : MonoBehaviour {
 	//PHYSICS VARIABLES
 	private Vector3 moveDirection;
-	private float moveSpeed = 6f;
+	public float moveSpeed = 15f;
 
 	private float jumpForce = 10f;
 	private int maxJumps = 5;
 	private int jumpsCounter = 0;
 
+	public float multiplier = 1f; //Multiplier make sure to reset it so everything is good to go 
+
+
 	//public bool grounded;
 	public float distToGround;
 	public float gravity = 9.8f;
 
+	//OTHER VARIABLES
 	public GameObject staminaBar;
 	float jumpsLeft;
 	//TODO fix stamina bars
@@ -67,7 +71,7 @@ public class BariJump : MonoBehaviour {
 	private void Movement(){
 		//**MOVEMENT**
 		//set x-axis movement direction to player one input
-		moveDirection.x = Input.GetAxis (playerName + " Horizontal") * moveSpeed;
+		moveDirection.x = Input.GetAxis (playerName + " Horizontal") * moveSpeed * multiplier;
 		moveDirection = transform.TransformDirection(moveDirection);
 
 		//**JUMPING**
