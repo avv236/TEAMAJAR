@@ -48,8 +48,8 @@ public class cameraBasics : MonoBehaviour {
 
 		//Checks to see if a player is spawning outside of the box, if so it will pan out. 
 		if(spawningView){
-			if(Camera.main.fieldOfView <= 97f){
-				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 97f, 0.1f);
+			if(Camera.main.fieldOfView <= 119f){
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 120f, 0.1f);
 			}
 			else{
 				spawningView = false;

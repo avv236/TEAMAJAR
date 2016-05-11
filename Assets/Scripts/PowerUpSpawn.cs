@@ -32,7 +32,7 @@ public class PowerUpSpawn : MonoBehaviour {
 				Transform newPowerUp = (Transform)Instantiate (powerUp,new Vector3(x,y,z),Quaternion.identity);
 				nextPowerUpSchedule = Time.time + PowerUpCooldown;
 			}else{
-				Debug.Log("NOt TOday");
+				Debug.Log("Not TOday");
 				nextPowerUpSchedule = Time.time + PowerUpCooldown;
 			}
 
@@ -44,7 +44,7 @@ public class PowerUpSpawn : MonoBehaviour {
 
 	bool ShouldISpawn(){
 		float Randomizer = Random.Range (0f, 1f);
-		if(Randomizer >= .85f){
+		if(Randomizer >= .4f){
 			return true;
 		}else{
 			return false;
