@@ -51,7 +51,7 @@ public class gameManager : MonoBehaviour {
 				winnerTimer -= Time.deltaTime;
 			}
 			else{
-				SceneManager.LoadScene(2);
+				SceneManager.LoadScene(3);
 			}
 
 		}
