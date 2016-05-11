@@ -10,9 +10,9 @@ public class clubTitleMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (transform.position.x >= 200f)
+        if (transform.position.x >= (Screen.width / 2))
         {
-            transform.position -= new Vector3(10f, 0f, 0f) * Time.deltaTime * 40f;
+            transform.position -= new Vector3(10f, 0f, 0f) * Time.deltaTime * 60f;
         }
 
 
