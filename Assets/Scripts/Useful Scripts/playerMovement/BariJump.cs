@@ -32,7 +32,7 @@ public class BariJump : MonoBehaviour {
 	//public Rigidbody playerRigidbody;
 	//public Collider playerCollider;
 	private string playerName;
-
+   
 
 	// Use this for initialization
 	void Start () {
@@ -94,7 +94,8 @@ public class BariJump : MonoBehaviour {
 		}
 
 		jumpsLeft = 1f * jumpsCounter / 5f;
-		staminaBar.GetComponent<Image>().fillAmount = jumpsLeft;
-		playerCharController.Move (moveDirection * Time.deltaTime);
+		//staminaBar.GetComponent<Image>().fillAmount = jumpsLeft;
+        staminaBar.transform.localScale = new Vector3(jumpsLeft, 1, 1);
+        playerCharController.Move (moveDirection * Time.deltaTime);
 	}
 }
