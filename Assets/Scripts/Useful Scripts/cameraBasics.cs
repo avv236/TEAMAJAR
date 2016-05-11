@@ -30,11 +30,13 @@ public class cameraBasics : MonoBehaviour {
 		Vector3 p1View = Camera.main.WorldToViewportPoint(p1.position);
 		Vector3 p2View = Camera.main.WorldToViewportPoint(p2.position);
 
-		if(p1View.y >= 0.95){
+
+
+		if(p1View.y >= 0.75f){
 			camPos = transform.position + new Vector3(0f, 1f, 0f);
 		}
 
-		if(p2View.y >= 0.95){
+		if(p2View.y >= 0.75f){
 			camPos = transform.position + new Vector3(0f, 1f, 0f);
 		}
 
