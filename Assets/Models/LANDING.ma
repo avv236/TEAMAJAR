@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
 //Name: LANDING.ma
-//Last modified: Thu, May 05, 2016 02:53:37 PM
+//Last modified: Thu, May 05, 2016 07:09:46 PM
 //Codeset: 1252
 requires maya "2016";
 currentUnit -l centimeter -a degree -t film;
