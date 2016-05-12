@@ -20,30 +20,25 @@ public class planeController : MonoBehaviour {
 		maxDist = 5f;
 		vertPos = 0;
 		//Debug.Log (verts + "");
+		shockwaveObjs = new List<GameObject>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		myMesh = gameObject.GetComponent<MeshFilter> ().mesh;
 		float yOffset = 0f;
-		
-		foreach (GameObject g in GameObject.FindGameObjectsWithTag("shock"))
-			shockwaveObjs.Add (g);
 
-
-		if (shockwaveObjs.Count != 0) {
+		if (shockwaveObjs.Capacity != 0) {
 			foreach (Vector3 v in origiVerts) {
-				for (int i = 0; i < shockwaveObjs.Count && yOffset < offsetMax && shockwaveObjs[i] != null; i++) {
+				foreach (GameObject g in GameObject.FindGameObjectsWithTag("shock")) {
 					if (v.y >= 0f) {
-						yOffset += (-(offsetMax/6f) / maxDist) * (Vector3.Distance (transform.TransformPoint (v), shockwaveObjs [i].transform.position + (transform.TransformPoint (v) - shockwaveObjs [i].transform.position).normalized * shockwaveObjs [i].GetComponent<shockwaveController> ().radius)) + (offsetMax/6f);
+						yOffset += (-(offsetMax / 6f) / maxDist) * Mathf.Abs(Vector3.Distance (transform.TransformPoint (v), g.transform.position + (transform.TransformPoint (v) - g.transform.position).normalized * g.GetComponent<shockwaveController> ().radius)) + (offsetMax / 6f);
 
 						if (yOffset < 0f)
 							yOffset = 0f;
 						else if (yOffset > offsetMax)
 							yOffset = offsetMax;
-						
-					} else
-						yOffset = 0f;
+					}
 				}
 					
 				verts [vertPos] = origiVerts [vertPos] + Vector3.up * yOffset;
@@ -54,7 +49,5 @@ public class planeController : MonoBehaviour {
 			vertPos = 0;
 			myMesh.vertices = verts;
 		}
-
-		shockwaveObjs = new List<GameObject> ();
 	}
 }
