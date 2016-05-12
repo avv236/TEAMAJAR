@@ -29,7 +29,7 @@ public class PowerUpSpawn : MonoBehaviour {
 
 		if(Time.time > nextPowerUpSchedule){
 			if(ShouldISpawn() == true){
-				Transform newPowerUp = (Transform)Instantiate (powerUp,new Vector3(x,y,z),Quaternion.identity);
+				Instantiate (powerUp,new Vector3(x,y,z),Quaternion.identity);
 				nextPowerUpSchedule = Time.time + PowerUpCooldown;
 			}else{
 				Debug.Log("Not TOday");
