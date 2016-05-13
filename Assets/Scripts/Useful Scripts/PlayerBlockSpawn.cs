@@ -16,7 +16,7 @@ public class PlayerBlockSpawn : MonoBehaviour {
 	private float nextBlock1;
 	private float blockCooldown1;
 	private float nextBlock2;
-	private float blockCooldown2;
+	private float blockCooldown2 = .35f;
 
 	string playerName;
 

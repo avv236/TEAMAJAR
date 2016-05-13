@@ -30,12 +30,14 @@ public class cameraBasics : MonoBehaviour {
 		Vector3 p1View = Camera.main.WorldToViewportPoint(p1.position);
 		Vector3 p2View = Camera.main.WorldToViewportPoint(p2.position);
 
-		if(p1View.y >= 0.95){
-			camPos = transform.position + new Vector3(0f, 1f, 0f);
+
+
+		if(p1View.y >= 0.70f){
+			camPos = transform.position + new Vector3(0f, 1.2f, 0f);
 		}
 
-		if(p2View.y >= 0.95){
-			camPos = transform.position + new Vector3(0f, 1f, 0f);
+		if(p2View.y >= 0.7f){
+			camPos = transform.position + new Vector3(0f, 1.2f, 0f);
 		}
 
 		if(p1View.x <= -0.1f || p1View.x >= 1.1f){
@@ -48,8 +50,8 @@ public class cameraBasics : MonoBehaviour {
 
 		//Checks to see if a player is spawning outside of the box, if so it will pan out. 
 		if(spawningView){
-			if(Camera.main.fieldOfView <= 97f){
-				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 97f, 0.1f);
+			if(Camera.main.fieldOfView <= 119f){
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 120f, 0.1f);
 			}
 			else{
 				spawningView = false;
@@ -67,7 +69,7 @@ public class cameraBasics : MonoBehaviour {
 				
 		}
 			
-		if(p1.transform.position.y < 5f && p2.transform.position.y < 7f){
+		if(p1.transform.position.y <7f && p2.transform.position.y < 7f){
 			camPos = originalPos;
 		}
 

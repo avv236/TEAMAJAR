@@ -3,18 +3,24 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class BariJump : MonoBehaviour {
+	public AudioSource myAudio;
+
 	//PHYSICS VARIABLES
 	private Vector3 moveDirection;
-	private float moveSpeed = 6f;
+	public float moveSpeed = 15f;
 
 	private float jumpForce = 10f;
 	private int maxJumps = 5;
 	private int jumpsCounter = 0;
 
+	public float multiplier = 1f; //Multiplier make sure to reset it so everything is good to go 
+
+
 	//public bool grounded;
 	public float distToGround;
 	public float gravity = 9.8f;
 
+	//OTHER VARIABLES
 	public GameObject staminaBar;
 	float jumpsLeft;
 	//TODO fix stamina bars
@@ -26,11 +32,11 @@ public class BariJump : MonoBehaviour {
 	//public Rigidbody playerRigidbody;
 	//public Collider playerCollider;
 	private string playerName;
-
+   
 
 	// Use this for initialization
 	void Start () {
-
+		myAudio = GetComponent<AudioSource> ();
 		//playerRigidbody = GetComponent<Rigidbody>();
 		//playerCollider = GetComponent<Collider>();
 		playerCharController = GetComponent<CharacterController>();
@@ -67,7 +73,7 @@ public class BariJump : MonoBehaviour {
 	private void Movement(){
 		//**MOVEMENT**
 		//set x-axis movement direction to player one input
-		moveDirection.x = Input.GetAxis (playerName + " Horizontal") * moveSpeed;
+		moveDirection.x = Input.GetAxis (playerName + " Horizontal") * moveSpeed * multiplier;
 		moveDirection = transform.TransformDirection(moveDirection);
 
 		//**JUMPING**
@@ -76,6 +82,7 @@ public class BariJump : MonoBehaviour {
 		if(jumpsCounter > 0 && Input.GetButtonDown(playerName + " Jump")){
 			moveDirection.y = jumpForce;
 			jumpsCounter--;
+			myAudio.Play ();
 		}
 
 		//subject P1 to gravity
@@ -87,7 +94,8 @@ public class BariJump : MonoBehaviour {
 		}
 
 		jumpsLeft = 1f * jumpsCounter / 5f;
-		staminaBar.GetComponent<Image>().fillAmount = jumpsLeft;
-		playerCharController.Move (moveDirection * Time.deltaTime);
+		//staminaBar.GetComponent<Image>().fillAmount = jumpsLeft;
+        staminaBar.transform.localScale = new Vector3(jumpsLeft, 1, 1);
+        playerCharController.Move (moveDirection * Time.deltaTime);
 	}
 }
