@@ -8,6 +8,8 @@ public class killScreen : MonoBehaviour {
     public GameObject PlayerBlue;
 	public Text winText;
 
+	public AudioSource soundBox;
+	public AudioClip selectionSound;
 
 	// Use this for initialization
 	void Start () {
@@ -34,10 +36,14 @@ public class killScreen : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(Input.GetKeyDown(KeyCode.Space)){
-
-			SceneManager.LoadScene(2);
+		if(Input.GetKeyDown(KeyCode.Space) && !soundBox.isPlaying){
+			soundBox.PlayOneShot (selectionSound);
+			Invoke("LoadNextScene", 1f);
 		}
 
+	}
+
+	void LoadNextScene(){
+		SceneManager.LoadScene(2);
 	}
 }
