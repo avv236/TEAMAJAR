@@ -9,7 +9,11 @@ public class bombKill : MonoBehaviour {
 
 		//Turns off the trigger if it is a cube
 		//Then sets the parents respawning variabl to true
-		if(col.name == "base")
+		if(col.name == "base" 
+			|| col.name == "P1" 
+			|| col.name == "P2"
+			|| col.name == "p1Cube"
+			|| col.name == "p2cube")
 			Instantiate(pr_shockwave, new Vector3(transform.position.x, col.transform.position.y, transform.position.z), pr_shockwave.transform.rotation);
 
 		Instantiate (pr_explosionCloud, transform.position - Vector3.up, pr_explosionCloud.transform.rotation);
