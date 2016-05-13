@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class BariJump : MonoBehaviour {
+	public AudioSource myAudio;
+
 	//PHYSICS VARIABLES
 	private Vector3 moveDirection;
 	public float moveSpeed = 15f;
@@ -34,7 +36,7 @@ public class BariJump : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		myAudio = GetComponent<AudioSource> ();
 		//playerRigidbody = GetComponent<Rigidbody>();
 		//playerCollider = GetComponent<Collider>();
 		playerCharController = GetComponent<CharacterController>();
@@ -80,6 +82,7 @@ public class BariJump : MonoBehaviour {
 		if(jumpsCounter > 0 && Input.GetButtonDown(playerName + " Jump")){
 			moveDirection.y = jumpForce;
 			jumpsCounter--;
+			myAudio.Play ();
 		}
 
 		//subject P1 to gravity
