@@ -13,7 +13,7 @@ public class bombKill : MonoBehaviour {
 			|| col.name == "P1" 
 			|| col.name == "P2"
 			|| col.name == "p1Cube"
-			|| col.name == "p2cube")
+			|| col.name == "p2Cube")
 			Instantiate(pr_shockwave, new Vector3(transform.position.x, col.transform.position.y, transform.position.z), pr_shockwave.transform.rotation);
 
 		Instantiate (pr_explosionCloud, transform.position - Vector3.up, pr_explosionCloud.transform.rotation);

@@ -32,12 +32,12 @@ public class cameraBasics : MonoBehaviour {
 
 
 
-		if(p1View.y >= 0.75f){
-			camPos = transform.position + new Vector3(0f, 1f, 0f);
+		if(p1View.y >= 0.70f){
+			camPos = transform.position + new Vector3(0f, 1.2f, 0f);
 		}
 
-		if(p2View.y >= 0.75f){
-			camPos = transform.position + new Vector3(0f, 1f, 0f);
+		if(p2View.y >= 0.7f){
+			camPos = transform.position + new Vector3(0f, 1.2f, 0f);
 		}
 
 		if(p1View.x <= -0.1f || p1View.x >= 1.1f){
@@ -69,7 +69,7 @@ public class cameraBasics : MonoBehaviour {
 				
 		}
 			
-		if(p1.transform.position.y < 5f && p2.transform.position.y < 7f){
+		if(p1.transform.position.y <7f && p2.transform.position.y < 7f){
 			camPos = originalPos;
 		}
 
