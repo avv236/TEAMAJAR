@@ -16,7 +16,7 @@ public class PlayerBlockSpawn : MonoBehaviour {
 	private float nextBlock1;
 	private float blockCooldown1;
 	private float nextBlock2;
-	private float blockCooldown2;
+	private float blockCooldown2 = .35f;
 
 	string playerName;
 
@@ -38,7 +38,7 @@ public class PlayerBlockSpawn : MonoBehaviour {
 
 		if(playerName == "P1" && !GetComponent<playerControl>().isRespawning){
 
-			if((Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("P1 Fire")) && Time.time > nextBlock2){
+			if((Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("P1 Fire")) && Time.time > nextBlock2){
 				//Sets block spawn point directly below the player(snaps to grid)
 				//spawnPosition = new Vector3 (Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(playerPosition.y), Mathf.RoundToInt(playerPosition.z)) + (-transform.up);
 
